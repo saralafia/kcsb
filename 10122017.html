@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1039.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <title>Spinitron - KCSB: Footprints of Giant Steps Thu Oct 12th 2017</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Spinitron radio playlists for non-commercial music stations">
+    <meta name="copyright" content="Copyright 2014 Spinitron, LLC. All rights reserved.">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Titillium+Web:600,400,400italic|Exo+2:900italic,500'>
+    <link rel="stylesheet" href="/assets1/styles.css">
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <link rel="stylesheet" src="/assets1/lt9.css">
+    <script src="/js/jquery-1.8.3.min.js"></script>
+    <script src="/assets1/lt9.js"></script>
+    <![endif]-->
+        <meta property="fb:app_id" content="161335421321">
+        <meta property="og:type" content="music.playlist">
+        <meta property="og:url" content="//spinitron.com/radio/playlist.php?station=kcsb&amp;playlist=50239">
+        <meta property="og:title" content="Footprints of Giant Steps with Sara Lafia on KCSB-FM 91.9 Thu Oct 12th 2017 10.00AM-12.00PM">
+        <meta property="og:site_name" content="Spinitron"/>
+        <meta property="og:description" content="Spinitron radio playlist"/>
+        <meta property="og:image" content="//spinitron.com/img/spinitron-64x64.png">
+
+</head>
+<body>
+
+<div class="container">
+    <div id="topnav-outer">
+        <nav id="topnav">
+            <ol class="menu">
+                <li id="home" class="bgimg"><a href="/"><span>Home</span></a></li>
+                <li><a href="/member/signin">Login</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/doc/">Help</a></li>
+                <li><a href="http://blog.spinitron.com/">Chart</a></li>
+                <li><a href="/v2/news/" class="v2">News</a></li>
+                <li><a href="/v2/m/search/" class="v2">Search</a></li>
+                <li id="show-menu" class="bgimg"><a href="#"><span>Menu</span></a></li>
+            </ol>
+        </nav>
+    </div>
+
+    <nav id="sidenav" class="public">
+        <div id="leftdiv">
+    <p class="mob-home"><a href="/" title="Spinitron home page"><img src="/img/logo-iphone.png"> <span>SPINITRON</span> home</a></p>
+    <p id="sidebarlogo"><a href="/" title="Spinitron home page"><img alt="logo" src="/img/new-32.png"></a></p>
+    <table class="cal" cellspacing="0">
+        <thead>
+            <tr>
+                <th colspan="2" class="ralign">
+                    <a href="playlist.php?station=kcsb&amp;month=Sep&amp;year=2017"><img src="/img/larr.png" width="14" height="11" alt="Previous month"></a></th>
+                <th colspan="3">Oct</th>
+                <th colspan="2" class="lalign">
+                    <a  class="ahem"><img src="/img/rarr.png" width="14" height="11"
+                    alt="Next month"></a></th>
+            </tr>
+            <tr>
+                <th colspan="2" class="ralign">
+                    <a href="playlist.php?station=kcsb&amp;month=Oct&amp;year=2016"><img src="/img/larr.png" width="14" height="11" alt="Previous year"></a></th>
+                <th colspan="3">2017</th>
+                <th colspan="2" class="lalign">
+                    <a  class="ahem"><img src="/img/rarr.png" width="14" height="11"
+                    alt="Next year"></a></th>
+            </tr>
+            <tr>
+				<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+			</tr>
+		</thead>
+		<tbody><tr>
+</tr>
+<tr><td><a href="playlist.php?station=kcsb&amp;day=01#here">1</a></td><td><a href="playlist.php?station=kcsb&amp;day=02#here">2</a></td><td><a href="playlist.php?station=kcsb&amp;day=03#here">3</a></td><td><a href="playlist.php?station=kcsb&amp;day=04#here">4</a></td><td><a href="playlist.php?station=kcsb&amp;day=05#here">5</a></td><td><a href="playlist.php?station=kcsb&amp;day=06#here">6</a></td><td><a href="playlist.php?station=kcsb&amp;day=07#here">7</a></td></tr>
+<tr><td><a href="playlist.php?station=kcsb&amp;day=08#here">8</a></td><td><a href="playlist.php?station=kcsb&amp;day=09#here">9</a></td><td><a href="playlist.php?station=kcsb&amp;day=10#here">10</a></td><td><a href="playlist.php?station=kcsb&amp;day=11#here">11</a></td><td><a href="playlist.php?station=kcsb&amp;day=12#here">12</a></td><td><a href="playlist.php?station=kcsb&amp;day=13#here">13</a></td><td><a href="playlist.php?station=kcsb&amp;day=14#here">14</a></td></tr>
+<tr><td><a href="playlist.php?station=kcsb&amp;day=15#here">15</a></td><td><a href="playlist.php?station=kcsb&amp;day=16#here">16</a></td><td><a href="playlist.php?station=kcsb&amp;day=17#here">17</a></td><td><a href="playlist.php?station=kcsb&amp;day=18#here">18</a></td><td><a href="playlist.php?station=kcsb&amp;day=19#here">19</a></td><td><a href="playlist.php?station=kcsb&amp;day=20#here">20</a></td><td><a href="playlist.php?station=kcsb&amp;day=21#here">21</a></td></tr>
+<tr><td><a href="playlist.php?station=kcsb&amp;day=22#here">22</a></td><td><a href="playlist.php?station=kcsb&amp;day=23#here">23</a></td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr>
+<tr><td>29</td><td>30</td><td>31</td></tr>
+</tbody>
+	</table>
+	<p class="part"><a href="playlist.php?station=kcsb&amp;playlist=current#main">Current playlist</a><br>
+		<a href="playlist.php?station=kcsb&amp;show=schedule&amp;sv=l#here">Program schedule</a><br>
+		<a href="http://www.kcsb.org" class="addlayout" target="_blank">KCSB's web site</a><br>
+	<p class="part"><b>Browse</b><br><a href="playlist.php?station=kcsb&amp;browse=a">Artists</a> &middot;
+		<a href="playlist.php?station=kcsb&amp;browse=d">Disks</a> &middot; <a href="playlist.php?station=kcsb&amp;browse=l">Labels</a></p>
+	<form accept-charset="utf-8" name="search" action="playlist.php" method="GET">
+        <input type="hidden" name="station" value="kcsb">
+        <input type="hidden" name="year" value="2017">
+        <input type="hidden" name="month" value="Oct">
+        <input type="hidden" name="ptype" value="b">
+		<p class="part"><b>Search</b> the selected month
+		<br><input type="text" name="find" id="findtext" maxlength="63" value="">
+		<br><select name="kind">
+				<option value="artist" >Artists</option>
+				<option value="disk" >Disks</option>
+				<option value="song" >Songs</option>
+				<option value="composer" >Composers</option>
+			</select>
+			<input type="submit" value="Go"></p>
+	</form>
+	<p class="part" id="feeds"><a class="rsslink" href="/radio/rss.php?station=kcsb" title="RSS feed of KCSB’s most recent spins (station feed)"><img src="/rss-feed.png" width="12" height="12" alt="RSS icon"> <span>KCSB</span></a>
+<a class="rsslink" href="/radio/rss.php?station=kcsb&amp;showid=5937" title="RSS feed of Footprints of Giant Steps’s most recent spins (show feed)"><img src="/rss-feed.png" width="12" height="12" alt="RSS icon"> <span>Footprints of Giant Steps</span></a>
+<a class="rsslink" href="/radio/rss.php?station=kcsb&amp;djid=1013" title="RSS feed of Sara Lafia’s most recent spins (DJ feed)"><img src="/rss-feed.png" width="12" height="12" alt="RSS icon"> <span>Sara Lafia</span></a></p>
+</div>
+<div id="dynamicbox" style="display:none"><div id="slot1"></div><div id="slot2"></div></div>
+
+
+    </nav>
+
+    <main id="content" class="partial">
+        <header>
+<a name="main" class="mobgoto"></a>
+<div class="spacer"></div>
+<aside><a href="http://www.kcsb.org" target="_blank"><img src="logos/kcsb-logo.png" width="124" height="70" alt="kcsb-station-logo"></a></aside>
+<p class="stationid">KCSB-FM 91.9</p>
+<p class="sloganid">Community Service and Educational Broadcasting</p>
+</header>
+
+
+        <a name="here" class="mobgoto"></a>
+        
+
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+<div style="" id="playlisthead">
+  <p class="showimg"><img width="200" height="120"  src="/public/logos/kcsb/show_5937_lg.png"></p>
+  
+  <p class="plhead"><a href="playlist.php?station=kcsb&amp;showid=5937#here">Footprints of Giant Steps</a> (Jazz)</p>
+  
+  <p class="indent">purely jazz vinyl from the KCSB archives</p>
+
+  <div  class="infoblock lead ">
+    
+    <p class="plhead">With <a href="playlist.php?station=kcsb&amp;djuid=1013#here">Sara Lafia</a></p>
+	
+    
+    
+  </div>
+
+  <p class="plheadsub leadpad">Thu Oct 12th 2017 10.00am–12.00pm</p>
+
+  <p class="plnotes1"><small><b>R</b></small>=listener request.
+	<small><b>N</b></small>=music new at the station.
+	<small><b>L</b></small>=local music. <span class="">Your
+	purchases using the
+	<span class="dynit">Buy it!</span> links
+	help support the station.</span></p>
+	<p class="plnotes1">Time zone: pacific</p>
+	
+    
+        <div class="fb-like " data-href="//spinitron.com/radio/playlist.php?station=kcsb&amp;playlist=50239" data-layout="standard" data-action="like" data-size="small" 
+            data-show-faces="true" data-share="true" ></div>
+
+</div>
+
+<div class="plblock noart withbuy"><div class="f2row od" id="#1101388"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101388" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">10:03am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=33092#here">Gil Scott Heron</a></span> <span class="sn">“Spirits”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kcsb&amp;dbdetail=d&amp;dbid=125093#here">spirits</a></span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=11159#here">TVT Records</a> 1994)</span></p></div></div>
+<div class="f2row ev" id="#1101390"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101390" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">10:11am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=1335#here">Oliver Lake</a></span> <span class="sn">“Gallery”</span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=1387#here">Gramavision</a> 1986)</span></p></div></div>
+<div class="f2row od" id="#1101393"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101393" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">10:17am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=76655#here">Dadisi Komolafe</a></span> <span class="sn">“Speak No Evil”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kcsb&amp;dbdetail=d&amp;dbid=160318#here">Hassan's Walk</a></span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=12689#here">nimbus records</a> 1983)</span></p></div></div>
+<div class="f2row ev" id="#1101396"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101396" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">10:27am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=2865#here">Don Cherry</a></span> <span class="sn">“The Creator has a Master Plan”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kcsb&amp;dbdetail=d&amp;dbid=134921#here">Live In Ankara</a></span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=25874#here">Sonet Gramofon</a> 1969)</span></p></div></div>
+<div class="f2row od" id="#1101397"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101397" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">10:32am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=185803#here">Eric Dolphy, Booker Ervin With Mal Waldron</a></span> <span class="sn">“Fire Waltz”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kcsb&amp;dbdetail=d&amp;dbid=433291#here">The Quest</a></span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=739#here">prestige</a> 1972)</span></p></div></div>
+<div class="f2row ev" id="#1101400"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101400" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">10:40am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=26111#here">The Zawinul Syndicate</a></span> <span class="sn">“Carnavalito”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kcsb&amp;dbdetail=d&amp;dbid=44182#here">Black Water</a></span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=274#here">Columbia Records</a> 1989)</span></p></div></div>
+<div class="f2row od" id="#1101402"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101402" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">10:50am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=104179#here">Robin Kenyatta</a></span> <span class="sn">“Nomusa”</span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=23217#here">muse records</a> 1975)</span></p></div></div>
+<div class="f2row ev" id="#1101405"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101405" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:05am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=29021#here">Carlos Santana</a></span> <span class="sn">“Nueva York”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kcsb&amp;dbdetail=d&amp;dbid=433296#here">Shango</a></span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=144#here">CBS</a> <a href="http://sonymusic.com/" target="labels">sonymusic.com/</a> 1982)</span></p></div></div>
+<div class="f2row od" id="#1101408"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101408" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:10am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=1730#here">Sonny Rollins</a></span> <span class="sn">“Kilauea”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kcsb&amp;dbdetail=d&amp;dbid=433299#here">Sunny Days Starry Nights</a></span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=412#here">Fantasy</a> 1984)</span></p></div></div>
+<div class="f2row ev" id="#1101411"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101411" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:20am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=158459#here">David Amram &amp; Friends</a></span> <span class="sn">“Blue Bomba”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kcsb&amp;dbdetail=d&amp;dbid=372018#here">Latin Jazz Celebration</a></span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=202#here">Elektra</a> 1983)</span></p></div></div>
+<div class="f2row od" id="#1101412"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101412" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:23am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=38361#here">Mongo Santamaria</a></span> <span class="sn">“Day Tripper”</span><br><span class="cp">composed by Paul McCartney &amp; John Lennon</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kcsb&amp;dbdetail=d&amp;dbid=433300#here">Soca Me Nice</a></span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=73591#here">Coast Records</a> 1988)</span></p></div></div>
+<div class="f2row ev" id="#1101415"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101415" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:31am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=11100#here">Pete Escovedo</a></span> <span class="sn">“Yesterday's Memories Tomorrow's Dreams”</span> <span class="de">Single</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=47358#here">Crossover</a> 1985)</span></p></div></div>
+<div class="f2row od" id="#1101418"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101418" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:37am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=185806#here">Papaya</a></span> <span class="sn">“Favela”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kcsb&amp;dbdetail=d&amp;dbid=433306#here">Papaya</a></span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=73594#here">Jerden Records</a> 1980)</span></p></div></div>
+<div class="f2row ev" id="#1101421"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101421" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:45am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=30834#here">Kenny Burrell</a></span> <span class="sn">“Moon and Sand”</span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=833#here">Concord</a> 1980)</span></p></div></div>
+<div class="f2row od" id="#1101424"><div class="dynit"><a class="dynam dynit" rel="nofollow" href="playlist.php?station=kcsb&amp;playlist=50239&amp;merch=song&amp;id=1101424" title="See products from iTunes and Amazon"></a></div><div class="nfo"><p class="st">11:52am</p><p><span class="aw"><a href="playlist.php?station=kcsb&amp;dbdetail=a&amp;dbid=185809#here">Dexter Gordon, Wardell Gray, Sonny Criss, Hampton Hawes, Barney Kessel, Howard McGhee, Al Killian</a></span> <span class="sn">“Disorder At The Border”</span><br><span class="df"> from</span> <span class="dn"><a href="playlist.php?station=kcsb&amp;dbdetail=d&amp;dbid=433309#here">Jazz Concert - West Coast</a></span> <span class="de">LP Album</span> <span class="ld">(<a href="playlist.php?station=kcsb&amp;dbdetail=l&amp;dbid=7232#here">Savoy</a> 1985)</span></p></div></div>
+<hr class="clearer"></div>
+<p class="lead" style="color:#666">Like everything else, times are approximate.
+Spinitron and this station are not liable for errors or omissions.</p>
+
+
+
+
+
+    </main>
+
+    <footer>Copyright © 2013 Spinitron, LLC. All rights reserved.</footer>
+</div>
+
+<script src="/assets1/scripts.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/jquery-1.11.1.min.js"><\/script>')</script>
+<script src="/assets/scripts-public.js"></script>
+<script src="/js1/pub_common.min.js" type="text/javascript"></script>
+	<script src="/js1/pub_playlist.min.js" type="text/javascript"></script>
+<script></script>
+<script>jQuery(function ($) { GOTOSPIN($); });</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"eaaa9ca9d4","applicationID":"7096042","transactionName":"Z1dQYUICXkQEBk1aX14dZ0dZTEJWAQxWHEBcU0tZWRBEGRUNSQ==","queueTime":0,"applicationTime":29,"atts":"SxBTFwoYTUo=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
